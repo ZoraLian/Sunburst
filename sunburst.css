@@ -1,0 +1,22 @@
+path {
+  stroke: #ffffff;
+}
+
+div.tooltip {
+	position: absolute;
+	text-align: left;
+	width: auto;
+	height: auto;
+	padding: 8px;
+	font: 12px sans-serif;
+	background: #0a2538;
+	border: #0a2538 1px solid;
+	border-radius: 0px;
+	pointer-events: none;
+	color: white;
+}
+
+#sunburst-column {
+	font-size: 20px;
+	font-family: sans-serif;
+}
