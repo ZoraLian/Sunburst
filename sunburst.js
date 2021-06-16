@@ -43,7 +43,7 @@ var tooltip = d3.select("body").append("div")
   .style("opacity", 0);
 
 // load the data
-d3.json("sunburst.json", function (error, root) {
+d3.json("https://raw.githubusercontent.com/ZoraLian/Sunburst/master/sunburst.json", function (error, root) {
   if (error) throw error;
   console.log(root);
 
@@ -190,7 +190,7 @@ function zoomTransition(d) {
 function zoomSunburst(countryName) {
   if (typeof (countryName) == "string") {
     // load the sunburst data
-    d3.json("sunburst.json", function (error, root) {
+    d3.json("https://raw.githubusercontent.com/ZoraLian/Sunburst/master/sunburst.json", function (error, root) {
       // make the data elements fit for the sunburst
       var nodePartition = partition.nodes(root);
       for (i = 0; i < nodePartition.length; i++) {
