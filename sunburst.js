@@ -1,6 +1,11 @@
 // set some general properties of the chart
+<<<<<<< HEAD
 var sunburstWidth = 500,
   sunburstHeight = 500,
+=======
+var sunburstWidth = 450,
+  sunburstHeight = 450,
+>>>>>>> 18a243f6ebdc2bb6e333dae9f88e1d460c20c3ff
   radius = (Math.min(sunburstWidth, sunburstHeight) / 2) - 10;
 
 var formatNumber = d3.format(",d");
