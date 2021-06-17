@@ -1,0 +1,33 @@
+path {
+  stroke: #ffffff;
+}
+
+div.tooltip {
+	position: absolute;
+	text-align: left;
+	width: auto;
+	height: auto;
+	padding: 8px;
+	font: 12px monospace;
+	background: #0a2538;
+	border: #0a2538 1px solid;
+	border-radius: 10px;
+	pointer-events: none;
+	color: white;
+}
+
+#sunburst-column {
+	font-size: 20px;
+	font-family: monospace;
+}
+
+#dropdown-countries{
+	text-align:center;
+	text-align-last:center;
+	font-family: monospace;
+}
+
+.intro{
+	font-family: monospace;
+	font-size: 20px;
+}

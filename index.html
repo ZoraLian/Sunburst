@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<html lang="en-US">
+
+<head>
+  <title>2021 Year Immigration in World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
+  <script src="https://datamaps.github.io/scripts/0.4.0/datamaps.world.min.js?v=1"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../CSS/barchart.css"> -->
+  <link rel="stylesheet" type="text/css" href="sunburst.css">
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Immigration in Europe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li class="active"><a><span class="glyphicon glyphicon-stats"></span> Visualizations</a></li>
+        <li><a href="story.html"><span class="glyphicon glyphicon-align-justify"></span> Story</a></li>
+        <li><a href="additional-info.html"><span class="glyphicon glyphicon-info-sign"></span> Additional
+            Information</a></li>
+      </ul>
+    </div>
+  </nav> -->
+  <div class="container">
+    <!-- 用來選擇區域/國家-->
+    <h1>Visualizations</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <select id="dropdown-countries" name="dropdown-countries" style="height:25px; width: 190px;"
+            onchange="Class(this.id)">
+            <option id="WORLD">WORLD</option>
+
+            <option id="AFRICA">AFRICA</option>
+            <option id="Eastern Africa">Eastern Africa</option>
+            <option id="Northern Afirca">Northern Afirca</option>
+            <option id="Southern Africa">Southern Africa</option>
+            <option id="Western Africa">Western Africa</option>
+            <option id="Middle Africa">Middle Africa</option>
+
+            <option id="ASIA">ASIA</option>
+            <option id="Central Asia">Central Asia</option>
+            <option id="Eastern Asia">Eastern Asia</option>
+            <option id="South-Eastern Asia">South-Eastern Asia</option>
+            <option id="Southern Asia">Southern Asia</option>
+            <option id="Western Asia">Western Asia</option>
+
+            <option id="EUROPE">EUROPE</option>
+            <option id="Eastern Europe">Eastern Europe</option>
+            <option id="Northern Europe">Northern Europe</option>
+            <option id="Southern Europe">Southern Europe</option>
+            <option id="Western Europe">Western Europe</option>
+
+            <option id="AMERICA AND THE CARIBBEAN">AMERICA AND THE CARIBBEAN</option>
+            <option id="Caribbean">Caribbean</option>
+            <option id="Central America">Central America</option>
+            <option id="South America">South America</option>
+            <option id="Northern America">Northern America</option>
+
+            <option id="OCEANIA">OCEANIA</option>
+            <option id="Australia and New Zealand">Australia and New Zealand</option>
+            <option id="Melanesia">Melanesia</option>
+            <option id="Micronesia">Micronesia</option>
+            <option id="Polynesia">Polynesia</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4" id="map-column" style="width: 37.5%">
+        <div id="map-europe" style="height: 500px; width: 500px;"></div>
+      </div>
+      <div class="col-lg-1" style="width: 12.5%">
+        <div class="wrapper" style="margin: 0 auto; width: 800px; position: absolute;">
+          <div style="float: left;"><canvas id="my-canvas" width="30" height="200"></canvas></div>
+          <div id="mapLegend-text">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1">
+      </div> -->
+  <div class="col-lg-5" id="sunburst-column">
+    <p style="text-align: center; position: relative; left: -28.75px;">The distribution of immigrants per country in
+      2021<br></p>
+  </div>
+  <div class="intro">
+    <h1>Introduction</h1>
+    <p>At the left is a sunburst which in the middle shows the whole of World.</p>
+    <p>The first layer (all the children of World) contains all the continents that are colored on the map. These are
+      color coded to the percentage of immigrants that they took up in comparison to the rest of World.</p>
+    <p>The second layer tells the user about the nature of the immigrants per country. These cells are color coded to
+      the percentage of that country. </p>
+    <p>This information, together which theabsoluteamount of immigrants is displayed per country with a tooltip, while
+      hovering over it with the mouse.</p>
+    <p>At the top left is a dropdown menu, which will let the user select a country, on which is than zoomed in at
+      the sunburst.</p>
+  </div>
+  <!-- </div>
+  </div> -->
+  <!-- <script src="../JavaScript/mapLegend.js"></script>
+  <script src="../JavaScript/map.js"></script> -->
+  <script src="sunburst.js"></script>
+  <!-- <script src="../JavaScript/barchart.js"></script> -->
+  <!-- <div class="container">
+    <div class="row top-buffer">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="container-fluid">
+          <form>
+            <label class="radio-inline">
+              <input type="radio" checked="" name="optradio" id="sorting-radio1" value="1">
+              <label class="radio-text">Alphabetical Order</label>
+              </input>
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="optradio" id="sorting-radio2" value="2">
+              <label class="radio-text">Reversed Numerical Order</label>
+              </input>
+            </label>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div> -->
+</body>
+
+</html>
